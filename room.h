@@ -3,7 +3,7 @@
 #ifndef _ROOM_
 #define _ROOM_
 #include <iostream>
-#include "monster.h"
+#include "monster.hpp"
 #include "item.hpp"
 
 class Room
@@ -16,23 +16,26 @@ class Room
     Room *EastRoom;
     Room *WestRoom;
     int numberOfitems;
+    int numberOfMonsters;
 
 public:
-    //Constructors
+    // Constructors
     Room();
-    Room(char*, Item);
-    Room(char*, Item, Monster);
-    
-    //Getters:
-    Item* getItems();
-    void dupLegendaryItemCheck(Item );
-    
+    Room(char *, Item);
+    Room(char *, Item, Monster);
 
-    
+    // Getters:
+    Item *getItems();
+    Monster *getMonsters();
+
+    int getNumOfItems();
+    int getNumOfMonsters();
+    void dupLegendaryItemCheck(Item);
+
     void addItem(Item newItem);
-
-
-
+    void addMonster(Monster newMonster);
 };
+
+ostream &operator<<(ostream &os, const Room &currRoom);
 
 #endif

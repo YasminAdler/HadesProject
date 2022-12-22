@@ -2,7 +2,7 @@
 // Yasmin Adler 208462184
 #include <iostream>
 #include <cstring>
-#include "room.hpp"
+#include "room.h"
 #include "item.hpp"
 
 using namespace std;
@@ -34,14 +34,28 @@ Item *Room::getItems()
 
 void Room::addItem(Item newItem)
 {
-    numberOfitems +=1;
+    numberOfitems += 1;
     Item *newArr = new Item[numberOfitems];
-    for(int i = 0 ; i< numberOfitems -1; i++)
+    for (int i = 0; i < numberOfitems - 1; i++)
     {
         newArr[i] = items[i];
     }
     newArr[numberOfitems - 1] = newItem;
+    delete[] items;
     items = newArr;
+}
+
+void Room::addMonster(Monster newMonster)
+{
+    numberOfMonsters += 1;
+    Monster *newArr = new Monster[numberOfitems];
+    for (int i = 0; i < numberOfMonsters - 1; i++)
+    {
+        newArr[i] = monsters[i];
+    }
+    newArr[numberOfMonsters- 1] = newMonster;
+    delete[] monsters;
+    monsters = newArr;
 }
 
 void Room::dupLegendaryItemCheck(Item newItem)
@@ -57,4 +71,30 @@ void Room::dupLegendaryItemCheck(Item newItem)
             }
         }
     }
+}
+int Room::getNumOfItems()
+{
+    return numberOfitems;
+}
+
+int Room::getNumOfMonsters()
+{
+    return numberOfMonsters;
+}
+Monster* Room::getMonsters()
+{
+    return monsters;
+}
+
+ostream &operator<<(ostream &os, Room &currRoom)
+{
+    for (int i = 0; i < currRoom.getNumOfItems(); i++)
+    {
+        os << "Items:\n Name: " << (currRoom.getItems())[i].getName() << " Rarity: " << (currRoom.getItems())[i].getRarity() << endl;
+    }
+    for (int i = 0; i < currRoom.getNumOfMonsters(); i++)
+    {
+        os << "Items:\n Name: " << (currRoom.getMonsters())[i].getName() << " Level: " << (currRoom.getMonsters())[i].getLevel()  << endl;
+    }
+    return os;
 }
