@@ -53,7 +53,7 @@ void Room::addMonster(Monster newMonster)
     {
         newArr[i] = monsters[i];
     }
-    newArr[numberOfMonsters- 1] = newMonster;
+    newArr[numberOfMonsters - 1] = newMonster;
     delete[] monsters;
     monsters = newArr;
 }
@@ -72,6 +72,22 @@ void Room::dupLegendaryItemCheck(Item newItem)
         }
     }
 }
+void Room::dupMoonsterCheck(Monster newMonster)
+{
+    for (int i = 0; i < numberOfMonsters; i++)
+    {
+        if (strcmp(newMonster.getName(), monsters[i].getName()) == 0)
+        {
+            monsters[i]++;      //operator overloding
+        }
+        if (monsters[i].getLevel() >= 5)
+        {
+            Monster newMonster((monsters[i].getName()), 0);
+            addMonster(newMonster);
+        }
+    }
+}
+
 int Room::getNumOfItems()
 {
     return numberOfitems;
@@ -81,7 +97,7 @@ int Room::getNumOfMonsters()
 {
     return numberOfMonsters;
 }
-Monster* Room::getMonsters()
+Monster *Room::getMonsters()
 {
     return monsters;
 }
@@ -94,7 +110,7 @@ ostream &operator<<(ostream &os, Room &currRoom)
     }
     for (int i = 0; i < currRoom.getNumOfMonsters(); i++)
     {
-        os << "Items:\n Name: " << (currRoom.getMonsters())[i].getName() << " Level: " << (currRoom.getMonsters())[i].getLevel()  << endl;
+        os << "Items:\n Name: " << (currRoom.getMonsters())[i].getName() << " Level: " << (currRoom.getMonsters())[i].getLevel() << endl;
     }
     return os;
 }

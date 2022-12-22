@@ -13,7 +13,7 @@ private:
 public:
     /* Constructors */
     Monster();
-    Monster(char *, int);
+    Monster(const char *, int);
 
     /* Getters */
     const char *getName();

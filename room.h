@@ -31,9 +31,12 @@ public:
     int getNumOfItems();
     int getNumOfMonsters();
     void dupLegendaryItemCheck(Item);
+    void dupMoonsterCheck(Monster newMonster);
+
 
     void addItem(Item newItem);
     void addMonster(Monster newMonster);
+
 };
 
 ostream &operator<<(ostream &os, const Room &currRoom);
