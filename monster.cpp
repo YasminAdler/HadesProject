@@ -7,7 +7,7 @@
 inline Monster::Monster()
     : name('\0'), level(0){};
 
-Monster::Monster(char *name, int level)
+Monster::Monster(const char *name, int level)
 {
     this->name = strdup(name);
     this->level = level;
