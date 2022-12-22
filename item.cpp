@@ -14,7 +14,9 @@ Item::Item(char *nameVar, int rarityVar)
         return;
     }
     rarity = rarityVar;
-}
+};
+
+
 // creating a new item
 Item Item::operator=(Item newItem)
 {
@@ -28,7 +30,7 @@ Item Item::operator=(Item newItem)
     cin >> newItem.rarity;
     return newItem;
     }
-}
+};
 
 
 // adding a new item to the item list

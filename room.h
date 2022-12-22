@@ -1,8 +1,8 @@
 #ifndef _ROOM_
 #define _ROOM_
+#include <iostream>
 #include "item.h"
 #include "monster.h"
-#include <iostream>
 
 class Room
 {
@@ -15,10 +15,7 @@ class Room
     Room *WestRoom;
 
 public:
-    Room()
-        : name("\0"), items(NULL), monsters(NULL), NorthRoom(NULL), SouthRoom(NULL), EastRoom(NULL), WestRoom(NULL)
-    {
-    };
+    Room();
     Room(char*, Item);
     Room(char*, Item, Monster);
 };

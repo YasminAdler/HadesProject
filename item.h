@@ -1,6 +1,5 @@
 #ifndef _ITEM_
 #define _ITEM_
-#include "room.h"
 
 enum Rarity
 {
