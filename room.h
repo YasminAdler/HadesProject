@@ -18,8 +18,9 @@ public:
     Room()
         : name("\0"), items(NULL), monsters(NULL), NorthRoom(NULL), SouthRoom(NULL), EastRoom(NULL), WestRoom(NULL)
     {
-    }
+    };
     Room(char*, Item);
+    Room(char*, Item, Monster);
 };
 
 #endif
