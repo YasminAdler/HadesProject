@@ -3,5 +3,6 @@ enum Rarity
     Common,
     Uncommon,
     Epic,
-    Legendary
+    Legendary,
+    lastRarity
 };
