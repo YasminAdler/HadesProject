@@ -2,7 +2,7 @@
 // Yasmin Adler 208462184
 #ifndef _ROOM_
 #define _ROOM_
-#include <iostream>
+#include <ostream>
 #include "monster.hpp"
 #include "item.hpp"
 
@@ -36,6 +36,6 @@ public:
     void addMonster(Monster newMonster);
 };
 
-ostream &operator<<(ostream &os, const Room &currRoom);
+std::ostream &operator<<(std::ostream &os, const Room &currRoom);
 
 #endif
