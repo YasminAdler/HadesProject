@@ -64,49 +64,36 @@ Item &Item::operator=(const Item &item)
     return *this;
 }
 
-Item &operator+=(const Item &itemL, const Item &itemR)
+Item &Item::operator++()
 {
-    Item tempL = itemL;
+    if (this->rarity + 1 == lastRarity)
+        return *this;
+    ++this->rarity;
+    return *this;
+}
+
+Item &Item::operator++(int)
+{
+    if (this->rarity + 1 == lastRarity)
+        return *this;
+    this->rarity++;
+    return *this;
+}
+
+Item &Item::operator+=(const Item &itemR)
+{
     Item tempR = itemR;
     int rarity;
-    if (tempL.getRarity() < tempR.getRarity())
-        tempL.setRarity(tempR.getRarity());
-    if (tempL.getRarity() + 1 == lastRarity)
-        return tempL;
-    tempL.setRarity(tempL.getRarity() + 1);
-    return tempL;
+    if (this->rarity < itemR.rarity)
+        this->rarity = itemR.rarity;
+    if (this->rarity + 1 == lastRarity)
+        return *this;
+    this->rarity++;
+    return *this;
 }
 
-Item &operator+(Item &itemL, const Item &itemR)
+Item &Item::operator+(const Item &itemR)
 {
-    Item temp = itemL;
-    temp += itemR;
-    return temp;
+    *this += itemR;
+    return *this;
 }
-
-// // creating a new item
-// Item &operator=(const Item &newItem);
-
-// ~Item();
-
-// creating a new item
-// Item Item::operator=(Item newItem)
-// {
-//     char buff[100] = {'\0'};
-//     cout << "Item name:\n";
-//     cin >> buff;
-//     newItem.name = strdup(buff);
-//     while(newItem.rarity > 3 || newItem.rarity < 0 )
-//     {
-//     cout << "Item rarity between 0-3:\n";
-//     cin >> newItem.rarity;
-//     return newItem;
-//     }
-// }
-
-// adding a new item to the item list
-// Item* operator+(const Item &newItem, Room currentRoom)
-// {
-//     currentRoom.items
-//     void* realloc(void* ptr, size_t new_size);
-// }

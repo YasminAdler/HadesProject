@@ -26,14 +26,16 @@ public:
 
     /* Operators */
     Item &operator=(const Item &item);
+    Item &operator++();
+    Item &operator++(int);
+    Item &operator+=(const Item &itemR);
+    Item &operator+(const Item &itemR);
 
     /* Destructor */
     ~Item();
 };
 
 /* Operators */
-Item &operator+=(const Item &itemL, const Item &itemR);
-Item &operator+(const Item &itemL, const Item &itemR);
 // Item & ++operator(Item &itemR); //???
 
 Item itemLIst[10] = {
