@@ -63,17 +63,19 @@ Item &Item::operator=(const Item &item)
     rarity = item.rarity;
     return *this;
 }
-// Item &operator+=(const Item &itemL, const Item &itemR)
-// {
-//     Item tempL = itemL;
-//     Item tempR = itemR;
-//     int rarity;
-//     if (tempL.getRarity() < tempR.getRarity())
-//         tempL.setRarity(tempR.getRarity());
-//     if (tempL.getRarity() + 1 == lastRarity)
-//         return tempL;
-//     tempL.setRarity(tempL.getRarity() + 1)
-// }
+
+Item &operator+=(const Item &itemL, const Item &itemR)
+{
+    Item tempL = itemL;
+    Item tempR = itemR;
+    int rarity;
+    if (tempL.getRarity() < tempR.getRarity())
+        tempL.setRarity(tempR.getRarity());
+    if (tempL.getRarity() + 1 == lastRarity)
+        return tempL;
+    tempL.setRarity(tempL.getRarity() + 1);
+    return tempL;
+}
 
 Item &operator+(Item &itemL, const Item &itemR)
 {
