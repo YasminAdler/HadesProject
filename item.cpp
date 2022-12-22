@@ -30,23 +30,28 @@ const int Item::getRarity()
 }
 
 /* Setters*/
-void Item::setName(char *name)
+bool Item::setName(char *name)
 {
     if (this->name)
         delete[] this->name;
     this->name = strdup(name);
     if (name == NULL)
-        cout << "Memory allocation failed";
+    {
+        // cout << "Memory allocation failed";
+        return false;
+    }
+    return true;
 }
 
-void Item::setRarity(int rarity)
+bool Item::setRarity(int rarity)
 {
     if (rarity < 0 || rarity >= lastRarity)
     {
-        cout << "Not a valid rarity";
-        return;
+        // cout << "Not a valid rarity";
+        return false;
     }
     this->rarity = rarity;
+    return true;
 }
 
 /* Operators */

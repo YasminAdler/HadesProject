@@ -21,8 +21,8 @@ public:
     const int getRarity();
 
     /* Setters */
-    void setName(char *name);
-    void setRarity(int rarity);
+    bool setName(char *name);
+    bool setRarity(int rarity);
 
     /* Operators */
     Item &operator=(const Item &item);
