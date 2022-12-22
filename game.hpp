@@ -2,19 +2,21 @@
 // Yasmin Adler 208462184
 #ifndef _GAME_
 #define _GAME_
-#include "map.h"
-#include "data.h"
-
+#include "map.hpp"
+#include "data.hpp"
 
 class Game
 {
 private:
     Map *currentMap;
-    Data* data;
+    Data data;
 
 public:
-Game();
-~Game();
+    /* Constructors */
+    Game();
+
+    /* Destructor */
+    ~Game();
 };
 
 #endif

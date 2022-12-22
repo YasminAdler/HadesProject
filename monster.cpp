@@ -65,6 +65,7 @@ Monster::~Monster()
         delete[] name;
 }
 
+/* Stream operators */
 std::ostream &operator<<(std::ostream &os, Monster &monster)
 {
     os << monster.getName()

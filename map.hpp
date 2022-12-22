@@ -13,6 +13,7 @@ enum Direction
     East,
     West
 };
+
 class Map
 {
 private:
