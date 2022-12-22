@@ -1,4 +1,5 @@
-
+// Alon A. Rabinowitz 208142323
+// Yasmin Adler 208462184
 #include <iostream>
 #include <cstring>
 #include "item.hpp"
@@ -70,8 +71,8 @@ Item &Item::operator=(const Item &item)
 //     if (tempL.getRarity() < tempR.getRarity())
 //         tempL.setRarity(tempR.getRarity());
 //     if (tempL.getRarity() + 1 == lastRarity)
-//         return itemL;
-//     tempL.setRarity(
+//         return tempL;
+//     tempL.setRarity(tempL.getRarity() + 1)
 // }
 
 Item &operator+(Item &itemL, const Item &itemR)

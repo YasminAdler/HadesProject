@@ -1,3 +1,5 @@
+// Alon A. Rabinowitz 208142323
+// Yasmin Adler 208462184
 #ifndef _ITEM_
 #define _ITEM_
 #include <iostream>
@@ -32,7 +34,7 @@ public:
 /* Operators */
 Item &operator+=(const Item &itemL, const Item &itemR);
 Item &operator+(const Item &itemL, const Item &itemR);
-Item & ++operator(Item &itemR); //???
+// Item & ++operator(Item &itemR); //???
 
 Item itemLIst[10] = {
     Item((char *)"books", 1),
