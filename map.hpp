@@ -3,7 +3,7 @@
 #ifndef _MAP_
 #define _MAP_
 
-#include "room.h"
+#include "room.hpp"
 #include <iostream>
 
 enum Direction

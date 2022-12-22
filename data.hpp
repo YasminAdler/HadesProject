@@ -4,7 +4,7 @@
 #define _DATA_
 
 #include "map.hpp"
-#include "room.h"
+#include "room.hpp"
 
 class Data
 {
