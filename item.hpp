@@ -1,3 +1,5 @@
+// Alon A. Rabinowitz 208142323
+// Yasmin Adler 208462184
 #ifndef _ITEM_
 #define _ITEM_
 #include <iostream>
@@ -19,20 +21,19 @@ public:
     const int getRarity();
 
     /* Setters */
-    void setName(char *name);
-    void setRarity(int rarity);
+    bool setName(char *name);
+    bool setRarity(int rarity);
 
     /* Operators */
     Item &operator=(const Item &item);
+    Item &operator++();
+    Item &operator++(int);
+    Item &operator+=(const Item &itemR);
+    Item &operator+(const Item &itemR);
 
     /* Destructor */
     ~Item();
 };
-
-/* Operators */
-Item &operator+=(const Item &itemL, const Item &itemR);
-Item &operator+(const Item &itemL, const Item &itemR);
-// Item & ++operator(Item &itemR); //???
 
 Item itemLIst[10] = {
     Item((char *)"books", 1),
