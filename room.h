@@ -1,8 +1,8 @@
 #ifndef _ROOM_
 #define _ROOM_
 #include <iostream>
-#include "item.h"
 #include "monster.h"
+#include "item.hpp"
 
 class Room
 {
@@ -13,11 +13,24 @@ class Room
     Room *SouthRoom;
     Room *EastRoom;
     Room *WestRoom;
+    int numberOfitems;
 
 public:
+    //Constructors
     Room();
     Room(char*, Item);
     Room(char*, Item, Monster);
+    
+    //Getters:
+    Item* getItems();
+    void dupLegendaryItemCheck(Item );
+    
+
+    
+    void addItem(Item newItem);
+
+
+
 };
 
 #endif

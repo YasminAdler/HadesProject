@@ -11,7 +11,7 @@ private:
 public:
     /* Constructors */
     Item()
-        : name('\0'), rarity(0){};
+        : name('\0'), rarity(0){}
     Item(char *name, int rarity);
 
     /* Getters */
@@ -32,7 +32,7 @@ public:
 /* Operators */
 Item &operator+=(const Item &itemL, const Item &itemR);
 Item &operator+(const Item &itemL, const Item &itemR);
-Item & ++operator(Item &itemR); //???
+// Item & ++operator(Item &itemR); //???
 
 Item itemLIst[10] = {
     Item((char *)"books", 1),
