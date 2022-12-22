@@ -35,9 +35,6 @@ public:
     ~Item();
 };
 
-/* Operators */
-// Item & ++operator(Item &itemR); //???
-
 Item itemLIst[10] = {
     Item((char *)"books", 1),
     Item((char *)"chairs", 2),

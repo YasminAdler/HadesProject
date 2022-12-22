@@ -49,16 +49,11 @@ void Item::setRarity(int rarity)
     this->rarity = rarity;
 }
 
-/* Destructor */
-Item::~Item()
-{
-    if (name)
-        delete[] name;
-}
-
 /* Operators */
 Item &Item::operator=(const Item &item)
 {
+    if (name)
+        delete[] name;
     name = strdup(item.name);
     rarity = item.rarity;
     return *this;
@@ -96,4 +91,11 @@ Item &Item::operator+(const Item &itemR)
 {
     *this += itemR;
     return *this;
+}
+
+/* Destructor */
+Item::~Item()
+{
+    if (name)
+        delete[] name;
 }
