@@ -2,8 +2,7 @@
 // Yasmin Adler 208462184
 #include <iostream>
 #include <cstring>
-#include "room.h"
-#include "item.hpp"
+#include "room.hpp"
 
 using namespace std;
 
