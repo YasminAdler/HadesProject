@@ -2,6 +2,7 @@
 // Yasmin Adler 208462184
 #ifndef _MONSTER_
 #define _MONSTER_
+#include <ostream>
 
 class Monster
 {
@@ -16,20 +17,24 @@ public:
 
     /* Getters */
     const char *getName();
-    const char *getLevel();
+    const int getLevel();
 
     /* Setters */
     bool setName(const char *);
     bool setLevel(const int);
 
     /* Operators */
-    Monster &operator+=(const Monster);
+    Monster &operator+=(const Monster &);
     Monster &operator++();
     Monster &operator++(int);
 
     /* Destructor */
     ~Monster();
 };
+
+/* Stream operators */
+
+std::ostream &operator<<(std::ostream &os, const Monster &);
 
 Monster monsterList[9]{
     Monster((char *)"Typhon", 0),
