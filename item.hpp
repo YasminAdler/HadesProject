@@ -2,7 +2,6 @@
 // Yasmin Adler 208462184
 #ifndef _ITEM_
 #define _ITEM_
-#include <iostream>
 
 class Item
 {
@@ -13,7 +12,7 @@ private:
 public:
     /* Constructors */
     Item()
-        : name('\0'), rarity(0){}
+        : name('\0'), rarity(0) {}
     Item(char *name, int rarity);
 
     /* Getters */
@@ -34,6 +33,8 @@ public:
     /* Destructor */
     ~Item();
 };
+/* Stream operators */
+ostream &operator<<(ostream &os, const Item &item);
 
 Item itemLIst[10] = {
     Item((char *)"books", 1),

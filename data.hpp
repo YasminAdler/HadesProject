@@ -3,7 +3,7 @@
 #ifndef _DATA_
 #define _DATA_
 
-#include "map.h"
+#include "map.hpp"
 #include "room.h"
 
 class Data
@@ -13,9 +13,14 @@ private:
     Room *roomsData;
 
 public:
+    /* Constructors */
     Data();
+
+    /* Getters */
+    Room getRoom();
     
-     
+    /* Destructor */
+    ~Data();
 };
 
 #endif

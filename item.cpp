@@ -104,3 +104,22 @@ Item::~Item()
     if (name)
         delete[] name;
 }
+
+const char *getRarityName(int rarity)
+{
+    const char *rarityNames[] =
+        {"Common",
+         "Uncommon",
+         "Epic",
+         "Legendary"};
+    return rarityNames[rarity];
+}
+
+/* Stream operators */
+ostream &operator<<(ostream &os, Item &item)
+{
+    os << getRarityName(item.getRarity())
+       << " "
+       << item.getName();
+    return os;
+}
