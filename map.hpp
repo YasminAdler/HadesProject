@@ -17,11 +17,12 @@ private:
 
 public:
     /* Constructors */
-    Map()
-        : name(nullptr), rooms(NULL), numbeOfRooms(0), currentRoon(NULL){};
+    Map();
 
     /* Functions */
     Room *AddRoom(Room, Direction);
-};
 
+    /* Destructor */
+    ~Map();
+};
 #endif
