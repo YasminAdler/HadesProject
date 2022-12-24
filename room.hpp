@@ -19,7 +19,7 @@ class Room
     int numberOfMonsters;
 
 public:
-    // Constructors
+    // Constructors:
     Room();
     Room(char *, Item);
     Room(char *, Item, Monster);
@@ -33,12 +33,13 @@ public:
     void dupLegendaryItemCheck(Item);
     void dupMoonsterCheck(Monster newMonster);
 
-
+    // Adders:
     void addItem(Item newItem);
     void addMonster(Monster newMonster);
 
 };
 
+//Stream operators:
 std::ostream &operator<<(std::ostream &os, const Room &currRoom);
 
 #endif

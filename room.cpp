@@ -6,6 +6,18 @@
 
 using namespace std;
 
+// Constructors:
+Room::Room()
+    : name(nullptr),
+      items(nullptr),
+      monsters(nullptr),
+      NorthRoom(nullptr),
+      SouthRoom(nullptr),
+      EastRoom(nullptr),
+      WestRoom(nullptr),
+      numberOfitems(0),
+      numberOfMonsters(0) {}
+
 Room::Room(char *name, Item itemList)
 {
     name = strdup(name);
@@ -26,11 +38,59 @@ Room::Room(char *name, Item itemList, Monster monsterList)
     EastRoom = NULL;
     WestRoom = NULL;
 }
+
+// Getters:
 Item *Room::getItems()
 {
     return items;
 }
 
+void Room::dupLegendaryItemCheck(Item newItem)
+{
+    if (newItem.getRarity() == 3)
+    {
+        for (int i = 0; i < numberOfitems; i++)
+        {
+            if (strcmp(newItem.getName(), items[i].getName()) == 0)
+            {
+                newItem.setRarity(0);
+                addItem(newItem);
+            }
+        }
+    }
+}
+
+void Room::dupMoonsterCheck(Monster newMonster)
+{
+    for (int i = 0; i < numberOfMonsters; i++)
+    {
+        if (strcmp(newMonster.getName(), monsters[i].getName()) == 0)
+        {
+            monsters[i]++; // operator overloding
+        }
+        if (monsters[i].getLevel() >= 5)
+        {
+            Monster newMonster((monsters[i].getName()), 0);
+            addMonster(newMonster);
+        }
+    }
+}
+
+int Room::getNumOfItems()
+{
+    return numberOfitems;
+}
+
+int Room::getNumOfMonsters()
+{
+    return numberOfMonsters;
+}
+Monster *Room::getMonsters()
+{
+    return monsters;
+}
+
+// Adders:
 void Room::addItem(Item newItem)
 {
     numberOfitems += 1;
@@ -57,50 +117,7 @@ void Room::addMonster(Monster newMonster)
     monsters = newArr;
 }
 
-void Room::dupLegendaryItemCheck(Item newItem)
-{
-    if (newItem.getRarity() == 3)
-    {
-        for (int i = 0; i < numberOfitems; i++)
-        {
-            if (strcmp(newItem.getName(), items[i].getName()) == 0)
-            {
-                newItem.setRarity(0);
-                addItem(newItem);
-            }
-        }
-    }
-}
-void Room::dupMoonsterCheck(Monster newMonster)
-{
-    for (int i = 0; i < numberOfMonsters; i++)
-    {
-        if (strcmp(newMonster.getName(), monsters[i].getName()) == 0)
-        {
-            monsters[i]++;      //operator overloding
-        }
-        if (monsters[i].getLevel() >= 5)
-        {
-            Monster newMonster((monsters[i].getName()), 0);
-            addMonster(newMonster);
-        }
-    }
-}
-
-int Room::getNumOfItems()
-{
-    return numberOfitems;
-}
-
-int Room::getNumOfMonsters()
-{
-    return numberOfMonsters;
-}
-Monster *Room::getMonsters()
-{
-    return monsters;
-}
-
+//Stream operators:
 ostream &operator<<(ostream &os, Room &currRoom)
 {
     for (int i = 0; i < currRoom.getNumOfItems(); i++)
