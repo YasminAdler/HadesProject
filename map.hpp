@@ -4,15 +4,8 @@
 #define _MAP_
 
 #include "room.hpp"
+#include "Direction.hpp"
 #include <iostream>
-
-enum Direction
-{
-    North,
-    South,
-    East,
-    West
-};
 
 class Map
 {
@@ -23,10 +16,11 @@ private:
     Room *currentRoon;
 
 public:
+    /* Constructors */
     Map()
-        : name(nullptr), rooms(NULL), numbeOfRooms(0), currentRoon(NULL)
-    {
-    }
+        : name(nullptr), rooms(NULL), numbeOfRooms(0), currentRoon(NULL){};
+
+    /* Functions */
     Room *AddRoom(Room, Direction);
 };
 
