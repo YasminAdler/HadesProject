@@ -12,7 +12,7 @@ private:
 public:
     /* Constructors */
     Item()
-        : name('\0'), rarity(0) {}
+        : name(nullptr), rarity(0) {}
     Item(char *name, int rarity);
 
     /* Getters */
@@ -34,7 +34,7 @@ public:
     ~Item();
 };
 /* Stream operators */
-ostream &operator<<(ostream &os, const Item &item);
+std::ostream &operator<<(std::ostream &os, const Item &item);
 
 Item itemLIst[10] = {
     Item((char *)"books", 1),

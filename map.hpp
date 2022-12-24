@@ -24,7 +24,7 @@ private:
 
 public:
     Map()
-        : name("\0"), rooms(NULL), numbeOfRooms(0), currentRoon(NULL)
+        : name(nullptr), rooms(NULL), numbeOfRooms(0), currentRoon(NULL)
     {
     }
     Room *AddRoom(Room, Direction);
