@@ -19,7 +19,7 @@ Room::Room()
       numberOfitems(0),
       numberOfMonsters(0) {}
 
-Room::Room(char *name, Item* itemList)
+Room::Room(char *name, Item *itemList)
 {
     name = strdup(name);
     items = itemList;
@@ -29,7 +29,7 @@ Room::Room(char *name, Item* itemList)
     WestRoom = NULL;
 }
 
-Room::Room(char *name, Item *itemList, Monster* monsterList)
+Room::Room(char *name, Item *itemList, Monster *monsterList)
 {
     name = strdup(name);
     items = itemList;
@@ -91,6 +91,23 @@ Monster *Room::getMonsters()
     return monsters;
 }
 
+Room *Room::getDirection(Direction direction)
+{
+    switch (direction)
+    {
+    case North:
+        return this->NorthRoom;
+    case South:
+        return this->SouthRoom;
+    case East:
+        return this->EastRoom;
+    case West:
+        return this->WestRoom;
+    default:
+        return nullptr;
+    }
+}
+
 // Adders:
 void Room::addItem(Item newItem)
 {
@@ -120,12 +137,11 @@ void Room::addMonster(Monster newMonster)
 
 Room *Room::addRoom(Room room, Direction direction)
 {
-    
+    if (getDirection(direction) != nullptr)
+        return &room;
     switch (direction)
     {
     case North:
-    if(this->NorthRoom==room)
-        return 
         this->NorthRoom = &room;
         break;
     case South:
@@ -139,7 +155,7 @@ Room *Room::addRoom(Room room, Direction direction)
         break;
     }
     room.addRoom(*this, (Direction)((direction + 2) % 4));
-    return nullptr;
+    return &room;
 }
 
 // Stream operators:

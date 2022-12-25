@@ -12,14 +12,15 @@ class Map
 private:
     char *name;
     Room *rooms;
-    int numbeOfRooms;
-    Room *currentRoon;
+    int numberOfRooms;
+    Room *currentRoom;
 public:
     /* Constructors */
     Map();
 
     /* Functions */
     Room *AddRoom(Room, Direction);
+    Room *findRoom(Room);
 
     /* Destructor */
     ~Map();
