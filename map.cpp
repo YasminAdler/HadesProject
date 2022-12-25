@@ -3,17 +3,18 @@
 #include "map.hpp"
 
 /* Constructors */
-inline Map::Map()
+Map::Map()
     : name(nullptr),
       rooms(NULL),
       numbeOfRooms(0),
-      currentRoon(NULL),
-      Start(NULL){}  ;    
+      currentRoon(NULL)
+      {
+        Room* Start;
+        currentRoon = Start;
+      };
 
 /* Functions */
-Room *Map::AddRoom(Room, Direction)
-{
-  
+Room *Map::AddRoom(Room, Direction){
 
 };
 
