@@ -20,7 +20,7 @@ public:
 
     /* Functions */
     Room *AddRoom(Room, Direction);
-    Room *findRoom(Room);
+    Room *findRoom(Room&);
 
     /* Destructor */
     ~Map();

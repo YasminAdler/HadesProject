@@ -18,20 +18,23 @@ Room *Map::AddRoom(Room room, Direction direction)
   // if there is sompthing there already
   if (currentRoom->getDirection(direction) != nullptr)
     return currentRoom;
-  newRoom = room;
-  for ()
-    currentRoom->addRoom(newRoom, direction);
-  return &newRoom;
+  currentRoom = currentRoom->addRoom(newRoom, direction);
+  ++numberOfRooms;
+  return currentRoom;
 }
-Room *Map::findRoom(Room)
+Room *Map::findRoom(Room &room)
 {
-  
-  return nullptr;
+  return room.findRoom(room);
 };
 
 /* Destructor */
-Map::~Map(){
-
+Map::~Map()
+{
+  if (name)
+    delete[] name;
+  if (rooms)
+    delete rooms;
+  currentRoom = nullptr;
 };
 
 /* Getters */
