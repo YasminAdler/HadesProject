@@ -22,7 +22,7 @@ public:
     // Constructors:
     Room();
     Room(char *, Item);
-    Room(char *, Item, Monster);
+    Room(char *, Item *, Monster*);
 
     // Getters:
     Item *getItems();

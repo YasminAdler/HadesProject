@@ -18,7 +18,7 @@ Room::Room()
       numberOfitems(0),
       numberOfMonsters(0) {}
 
-Room::Room(char *name, Item itemList)
+Room::Room(char *name, Item* itemList)
 {
     name = strdup(name);
     items = &itemList;
@@ -28,11 +28,11 @@ Room::Room(char *name, Item itemList)
     WestRoom = NULL;
 }
 
-Room::Room(char *name, Item itemList, Monster monsterList)
+Room::Room(char *name, Item *itemList, Monster* monsterList)
 {
     name = strdup(name);
-    items = &itemList;
-    monsters = &monsterList;
+    items = itemList;
+    monsters = monsterList;
     NorthRoom = NULL;
     SouthRoom = NULL;
     EastRoom = NULL;

@@ -23,6 +23,9 @@ public:
     
     /* Destructor */
     ~Map();
+    
+    /* Getters */
+    char* GetName();
 
 };
 #endif

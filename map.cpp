@@ -8,10 +8,10 @@ Map::Map()
       rooms(NULL),
       numbeOfRooms(0),
       currentRoon(NULL)
-      {
-        Room* Start;
-        currentRoon = Start;
-      };
+{
+  Room *Start;
+  currentRoon = Start;
+};
 
 /* Functions */
 Room *Map::AddRoom(Room, Direction){
@@ -22,3 +22,10 @@ Room *Map::AddRoom(Room, Direction){
 Map::~Map(){
 
 };
+
+
+/* Getters */
+char *Map::GetName()
+{
+  return name;
+}
