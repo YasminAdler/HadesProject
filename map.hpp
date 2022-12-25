@@ -14,7 +14,7 @@ private:
     Room *rooms;
     int numbeOfRooms;
     Room *currentRoon;
-
+    Room* Start;
 public:
     /* Constructors */
     Map();

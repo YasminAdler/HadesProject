@@ -7,7 +7,8 @@ inline Map::Map()
     : name(nullptr),
       rooms(NULL),
       numbeOfRooms(0),
-      currentRoon(NULL){};
+      currentRoon(NULL),
+      Start(NULL){};      
 
 /* Functions */
 
