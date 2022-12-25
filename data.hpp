@@ -20,6 +20,7 @@ public:
 
     /* Getters */
     Room getRoom();
+    Map* getMapsData();
     
     /* Adders */
     Room *addRoom(Room);
@@ -28,7 +29,7 @@ public:
     ~Data();
 
     /* Functions */
-    Map *addMap(Map* newMap);
+    Map& operator+=(Map& newMap);
 };
 
 #endif

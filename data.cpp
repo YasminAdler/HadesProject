@@ -1,6 +1,7 @@
 // Alon A. Rabinowitz 208142323
 // Yasmin Adler 208462184
 #include <iostream>
+#include <cstring>
 #include "data.hpp"
 
 using namespace std;
@@ -10,6 +11,11 @@ Data::Data()
     : mapsData(nullptr), roomsData(nullptr){};
 
 /* Getters */
+Map* Data::getMapsData()
+{
+    return mapsData;
+}
+
 
 /* Adders */
 Room *Data::addRoom(Room room)
@@ -34,9 +40,18 @@ Data::~Data()
 
 
 /*Functions*/
-Map* addMap(Map* newMap)
+Map& Data::operator+=(Map& newMap)
 {
-    if()
+    for(int i = 0; i< numberOfMaps; i++)
+    {
+        if(strcpy(mapsData[i].GetName(), newMap.GetName()) == 0)
+        {
+            cout << "This map already exists\n";
+            return *(this->getMapsData());
+        }
+    }
+    
+    
 }
 
 Room roomArray[10]{
