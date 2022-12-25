@@ -27,6 +27,7 @@ public:
     // Getters:
     Item *getItems();
     Monster *getMonsters();
+    char* getName();
 
     int getNumOfItems();
     int getNumOfMonsters();
@@ -38,6 +39,9 @@ public:
     void addItem(Item newItem);
     void addMonster(Monster newMonster);
     Room *addRoom(Room, Direction);
+
+    /* Functions */
+    Room* findRoom(Room&);
 };
 
 // Stream operators:

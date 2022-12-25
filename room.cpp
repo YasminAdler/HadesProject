@@ -91,6 +91,11 @@ Monster *Room::getMonsters()
     return monsters;
 }
 
+char *Room::getName()
+{
+    return name;
+}
+
 Room *Room::getDirection(Direction direction)
 {
     switch (direction)
@@ -156,6 +161,39 @@ Room *Room::addRoom(Room room, Direction direction)
     }
     room.addRoom(*this, (Direction)((direction + 2) % 4));
     return &room;
+}
+
+/* Functions */
+Room *Room::findRoom(Room &room)
+{
+    Room *temp;
+    if (name == room.getName())
+        return this;
+    if (NorthRoom != nullptr)
+    {
+        temp = NorthRoom->findRoom(room);
+        if (temp != nullptr)
+            return temp;
+    }
+    if (SouthRoom != nullptr)
+    {
+        temp = SouthRoom->findRoom(room);
+        if (temp != nullptr)
+            return temp;
+    }
+    if (EastRoom != nullptr)
+    {
+        temp = EastRoom->findRoom(room);
+        if (temp != nullptr)
+            return temp;
+    }
+    if (WestRoom != nullptr)
+    {
+        temp = WestRoom->findRoom(room);
+        if (temp != nullptr)
+            return temp;
+    }
+    return nullptr;
 }
 
 // Stream operators:
