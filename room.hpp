@@ -32,14 +32,15 @@ public:
     int getNumOfMonsters();
     void dupLegendaryItemCheck(Item);
     void dupMoonsterCheck(Monster newMonster);
+    Room *getDirection(Direction);
 
     // Adders:
     void addItem(Item newItem);
     void addMonster(Monster newMonster);
-
+    Room *addRoom(Room, Direction);
 };
 
-//Stream operators:
+// Stream operators:
 std::ostream &operator<<(std::ostream &os, const Room &currRoom);
 
 #endif

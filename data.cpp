@@ -11,7 +11,17 @@ Data::Data()
 
 /* Getters */
 
+/* Adders */
+Room *Data::addRoom(Room room)
+{
+    unsigned i = 0;
+    Room *temp;
+    while (roomsData + i != nullptr){
+        ++i;
 
+    }
+        return nullptr;
+}
 
 /* Destructor */
 Data::~Data()

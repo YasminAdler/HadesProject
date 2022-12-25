@@ -20,7 +20,10 @@ public:
 
     /* Getters */
     Room getRoom();
-
+    
+    /* Adders */
+    Room *addRoom(Room);
+    
     /* Destructor */
     ~Data();
 

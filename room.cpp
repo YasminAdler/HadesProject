@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstring>
 #include "room.hpp"
+#include "Direction.hpp"
 
 using namespace std;
 
@@ -117,7 +118,31 @@ void Room::addMonster(Monster newMonster)
     monsters = newArr;
 }
 
-//Stream operators:
+Room *Room::addRoom(Room room, Direction direction)
+{
+    
+    switch (direction)
+    {
+    case North:
+    if(this->NorthRoom==room)
+        return 
+        this->NorthRoom = &room;
+        break;
+    case South:
+        this->SouthRoom = &room;
+        break;
+    case East:
+        this->EastRoom = &room;
+        break;
+    case West:
+        this->WestRoom = &room;
+        break;
+    }
+    room.addRoom(*this, (Direction)((direction + 2) % 4));
+    return nullptr;
+}
+
+// Stream operators:
 ostream &operator<<(ostream &os, Room &currRoom)
 {
     for (int i = 0; i < currRoom.getNumOfItems(); i++)
