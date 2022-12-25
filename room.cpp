@@ -91,7 +91,7 @@ Monster *Room::getMonsters()
     return monsters;
 }
 
-char *Room::getName()
+const char *Room::getName()
 {
     return name;
 }
@@ -194,6 +194,24 @@ Room *Room::findRoom(Room &room)
             return temp;
     }
     return nullptr;
+}
+
+Room::~Room()
+{
+    if (name)
+        delete[] name;
+    if (items)
+        delete[] items;
+    if (monsters)
+        delete[] monsters;
+    if (NorthRoom)
+        delete NorthRoom;
+    if (SouthRoom)
+        delete SouthRoom;
+    if (EastRoom)
+        delete EastRoom;
+    if (WestRoom)
+        delete WestRoom;
 }
 
 // Stream operators:

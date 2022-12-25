@@ -21,13 +21,13 @@ class Room
 public:
     // Constructors:
     Room();
-    Room(char *, Item*);
-    Room(char *, Item *, Monster*);
+    Room(char *, Item *);
+    Room(char *, Item *, Monster *);
 
     // Getters:
     Item *getItems();
     Monster *getMonsters();
-    char* getName();
+    const char *getName();
 
     int getNumOfItems();
     int getNumOfMonsters();
@@ -41,7 +41,8 @@ public:
     Room *addRoom(Room, Direction);
 
     /* Functions */
-    Room* findRoom(Room&);
+    Room *findRoom(Room &);
+    ~Room();
 };
 
 // Stream operators:
