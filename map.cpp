@@ -8,7 +8,7 @@ inline Map::Map()
       rooms(NULL),
       numbeOfRooms(0),
       currentRoon(NULL),
-      Start(NULL){}      
+      Start(NULL){}  ;    
 
 /* Functions */
 Room *Map::AddRoom(Room, Direction)
