@@ -11,16 +11,21 @@ class Data
 private:
     Map *mapsData;
     Room *roomsData;
+    int numberOfMaps;
 
 public:
     /* Constructors */
-    Data();
+    Data()
+        : mapsData(nullptr), roomsData(nullptr), numberOfMaps(0){};
 
     /* Getters */
     Room getRoom();
-    
+
     /* Destructor */
     ~Data();
+
+    /* Functions */
+    Map *addMap(Map* newMap);
 };
 
 #endif

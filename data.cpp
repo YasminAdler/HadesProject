@@ -22,6 +22,13 @@ Data::~Data()
         delete[] roomsData;
 }
 
+
+/*Functions*/
+Map* addMap(Map* newMap)
+{
+    if()
+}
+
 Room roomArray[10]{
     {(char *)"room1", itemLIst[0], monsterList[0]},
     {(char *)"room2", itemLIst[1], monsterList[0]},
