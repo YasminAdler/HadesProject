@@ -167,33 +167,40 @@ Room *Room::addRoom(Room room, Direction direction)
 Room *Room::findRoom(Room &room)
 {
     Room *temp;
+    unsigned static flag = 0;
+    if (flag == 1)
+        return nullptr;
+    flag = 1;
     if (name == room.getName())
         return this;
     if (NorthRoom != nullptr)
     {
         temp = NorthRoom->findRoom(room);
         if (temp != nullptr)
-            return temp;
+            goto END;
     }
     if (SouthRoom != nullptr)
     {
         temp = SouthRoom->findRoom(room);
         if (temp != nullptr)
-            return temp;
+            goto END;
     }
     if (EastRoom != nullptr)
     {
         temp = EastRoom->findRoom(room);
         if (temp != nullptr)
-            return temp;
+            goto END;
     }
     if (WestRoom != nullptr)
     {
         temp = WestRoom->findRoom(room);
         if (temp != nullptr)
-            return temp;
+            goto END;
     }
     return nullptr;
+END:
+    flag = 0;
+    return temp;
 }
 
 Room::~Room()
