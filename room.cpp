@@ -21,7 +21,7 @@ Room::Room()
 Room::Room(char *name, Item* itemList)
 {
     name = strdup(name);
-    items = &itemList;
+    items = itemList;
     NorthRoom = NULL;
     SouthRoom = NULL;
     EastRoom = NULL;
