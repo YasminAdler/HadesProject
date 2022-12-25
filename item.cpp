@@ -7,6 +7,11 @@
 
 using namespace std;
 
+/* Constructors */
+inline Item::Item()
+    : name(nullptr),
+      rarity(0) {}
+
 Item::Item(char *name, int rarity)
 {
     this->name = strdup(name);

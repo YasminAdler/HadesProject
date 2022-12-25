@@ -7,7 +7,7 @@ Map::Map()
     : name(nullptr),
       numberOfRooms(1)
 {
-  this->rooms = new Room{(char *)"Start", nullptr};
+  rooms = new Room{(char *)"Start", nullptr};
   currentRoom = &rooms[0];
 };
 

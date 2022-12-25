@@ -5,7 +5,8 @@
 
 /* Constructors */
 inline Monster::Monster()
-    : name(nullptr), level(0){};
+    : name(nullptr),
+      level(0){};
 
 Monster::Monster(const char *name, int level)
 {

@@ -5,6 +5,7 @@
 #include <ostream>
 #include "monster.hpp"
 #include "item.hpp"
+#include "Direction.hpp"
 
 class Room
 {
@@ -19,12 +20,12 @@ class Room
     int numberOfMonsters;
 
 public:
-    // Constructors:
+    /* Constructors */
     Room();
     Room(char *, Item *);
     Room(char *, Item *, Monster *);
 
-    // Getters:
+    /* Getters */
     Item *getItems();
     Monster *getMonsters();
     const char *getName();
@@ -33,15 +34,18 @@ public:
     int getNumOfMonsters();
     void dupLegendaryItemCheck(Item);
     void dupMoonsterCheck(Monster newMonster);
+    // Returns the room in the requested direction.
     Room *getDirection(Direction);
 
-    // Adders:
+    /* Adders */
     void addItem(Item newItem);
     void addMonster(Monster newMonster);
     Room *addRoom(Room, Direction);
 
     /* Functions */
     Room *findRoom(Room &);
+
+    /* Destructor */
     ~Room();
 };
 
