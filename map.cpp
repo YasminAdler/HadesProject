@@ -5,13 +5,20 @@
 /* Constructors */
 Map::Map()
     : name(nullptr),
-      numbeOfRooms(1)
+      rooms(NULL),
+      numbeOfRooms(0),
+      currentRoon(NULL)
 {
-  Room *Start = new Room{(char *)"Start", nullptr};
-  rooms = new Room[1];
-  rooms[0] = Start;
-  currentRoom = Start;
+  Room *Start;
+  currentRoon = Start;
 };
+//       numbeOfRooms(1)
+// {
+//   Room *Start = new Room{(char *)"Start", nullptr};
+//   rooms = new Room[1];
+//   rooms[0] = Start;
+//   currentRoom = Start;
+// };
 
 /* Functions */
 Room *Map::AddRoom(Room room, Direction direction)
@@ -29,3 +36,10 @@ Room *Map::AddRoom(Room room, Direction direction)
 Map::~Map(){
 
 };
+
+
+/* Getters */
+char *Map::GetName()
+{
+  return name;
+}
