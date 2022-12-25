@@ -21,7 +21,7 @@ class Room
 public:
     // Constructors:
     Room();
-    Room(char *, Item);
+    Room(char *, Item*);
     Room(char *, Item *, Monster*);
 
     // Getters:
