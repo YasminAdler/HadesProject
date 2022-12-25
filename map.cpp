@@ -7,9 +7,14 @@ inline Map::Map()
     : name(nullptr),
       rooms(NULL),
       numbeOfRooms(0),
-      currentRoon(NULL){};
+      currentRoon(NULL){}
 
 /* Functions */
+Room *Map::AddRoom(Room, Direction)
+{
+  
+
+};
 
 /* Destructor */
 Map::~Map(){

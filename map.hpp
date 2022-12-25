@@ -21,7 +21,7 @@ public:
 
     /* Functions */
     Room *AddRoom(Room, Direction);
-
+    
     /* Destructor */
     ~Map();
 };
