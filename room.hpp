@@ -22,8 +22,8 @@ class Room
 public:
     /* Constructors */
     Room();
-    Room(char *, Item *);
-    Room(char *, Item *, Monster *);
+    Room(const char *, Item *);
+    Room(const char *, Item *, Monster *);
 
     /* Getters */
     Item *getItems();
@@ -40,7 +40,7 @@ public:
     /* Adders */
     void addItem(Item newItem);
     void addMonster(Monster newMonster);
-    Room *addRoom(Room, Direction);
+    Room *addRoom(Room&, Direction);
 
     /* Functions */
     Room *findRoom(Room &);

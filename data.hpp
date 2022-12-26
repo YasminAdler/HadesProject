@@ -15,8 +15,7 @@ private:
 
 public:
     /* Constructors */
-    Data()
-        : mapsData(nullptr), roomsData(nullptr), numberOfMaps(0){};
+    Data();
 
     /* Getters */
     Room getRoom();

@@ -19,7 +19,7 @@ Room::Room()
       numberOfitems(0),
       numberOfMonsters(0) {}
 
-Room::Room(char *name, Item *itemList)
+Room::Room(const char *name, Item *itemList)
 {
     name = strdup(name);
     items = itemList;
@@ -29,7 +29,7 @@ Room::Room(char *name, Item *itemList)
     WestRoom = NULL;
 }
 
-Room::Room(char *name, Item *itemList, Monster *monsterList)
+Room::Room(const char *name, Item *itemList, Monster *monsterList)
 {
     name = strdup(name);
     items = itemList;
@@ -140,7 +140,7 @@ void Room::addMonster(Monster newMonster)
     monsters = newArr;
 }
 
-Room *Room::addRoom(Room room, Direction direction)
+Room *Room::addRoom(Room& room, Direction direction)
 {
     if (getDirection(direction) != nullptr)
         return &room;
