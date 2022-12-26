@@ -19,7 +19,7 @@ Room::Room()
       numberOfitems(0),
       numberOfMonsters(0) {}
 
-Room::Room(char *name, Item* itemList)
+Room::Room(const char *name, Item *itemList)
 {
     name = strdup(name);
     items = itemList;
@@ -29,7 +29,7 @@ Room::Room(char *name, Item* itemList)
     WestRoom = NULL;
 }
 
-Room::Room(char *name, Item *itemList, Monster* monsterList)
+Room::Room(const char *name, Item *itemList, Monster *monsterList)
 {
     name = strdup(name);
     items = itemList;
@@ -91,6 +91,28 @@ Monster *Room::getMonsters()
     return monsters;
 }
 
+const char *Room::getName()
+{
+    return name;
+}
+
+Room *Room::getDirection(Direction direction)
+{
+    switch (direction)
+    {
+    case North:
+        return this->NorthRoom;
+    case South:
+        return this->SouthRoom;
+    case East:
+        return this->EastRoom;
+    case West:
+        return this->WestRoom;
+    default:
+        return nullptr;
+    }
+}
+
 // Adders:
 void Room::addItem(Item newItem)
 {
@@ -118,14 +140,13 @@ void Room::addMonster(Monster newMonster)
     monsters = newArr;
 }
 
-Room *Room::addRoom(Room room, Direction direction)
+Room *Room::addRoom(Room& room, Direction direction)
 {
-    
+    if (getDirection(direction) != nullptr)
+        return &room;
     switch (direction)
     {
     case North:
-    if(this->NorthRoom==room)
-        return 
         this->NorthRoom = &room;
         break;
     case South:
@@ -139,7 +160,65 @@ Room *Room::addRoom(Room room, Direction direction)
         break;
     }
     room.addRoom(*this, (Direction)((direction + 2) % 4));
+    return &room;
+}
+
+/* Functions */
+Room *Room::findRoom(Room &room)
+{
+    Room *temp;
+    unsigned static flag = 0;
+    if (flag == 1)
+        return nullptr;
+    flag = 1;
+    if (name == room.getName())
+        return this;
+    if (NorthRoom != nullptr)
+    {
+        temp = NorthRoom->findRoom(room);
+        if (temp != nullptr)
+            goto END;
+    }
+    if (SouthRoom != nullptr)
+    {
+        temp = SouthRoom->findRoom(room);
+        if (temp != nullptr)
+            goto END;
+    }
+    if (EastRoom != nullptr)
+    {
+        temp = EastRoom->findRoom(room);
+        if (temp != nullptr)
+            goto END;
+    }
+    if (WestRoom != nullptr)
+    {
+        temp = WestRoom->findRoom(room);
+        if (temp != nullptr)
+            goto END;
+    }
     return nullptr;
+END:
+    flag = 0;
+    return temp;
+}
+
+Room::~Room()
+{
+    if (name)
+        delete[] name;
+    if (items)
+        delete[] items;
+    if (monsters)
+        delete[] monsters;
+    if (NorthRoom)
+        delete NorthRoom;
+    if (SouthRoom)
+        delete SouthRoom;
+    if (EastRoom)
+        delete EastRoom;
+    if (WestRoom)
+        delete WestRoom;
 }
 
 // Stream operators:
