@@ -3,9 +3,9 @@
 #ifndef _ROOM_
 #define _ROOM_
 #include <ostream>
+#include "Direction.hpp"
 #include "monster.hpp"
 #include "item.hpp"
-#include "Direction.hpp"
 
 class Room
 {

@@ -4,6 +4,7 @@
 #include <cstring>
 #include "data.hpp"
 
+
 using namespace std;
 
 /* Constructors */
@@ -38,68 +39,62 @@ Data::~Data()
 }
 
 /*Functions*/
-void Data::operator+=(Map &newMap)
+Data* Data::operator+=(Map &newMap)
 {
     for (int i = 0; i < numberOfMaps; i++)
     {
         if (strcpy(mapsData[i].GetName(), newMap.GetName()) == 0)
         {
             cout << "This map already exists\n";
-            return;
+            return this;
         }
     }
-    Room *available;
+    Room* available;
     available = newMap.GetCurrentRooms();
-    if (available != NULL)
+    if(available != NULL)
     {
         mapsData->AddRoom(*available, North);
     }
-    return;
+    return this;
 }
 
-void Data::operator+(Map &newMap)
+Data* Data::operator+(Map &newMap)
 {
     for (int i = 0; i < numberOfMaps; i++)
     {
         if (strcpy(mapsData[i].GetName(), newMap.GetName()) == 0)
         {
             cout << "This map already exists\n";
-            return;
+            return this;
         }
     }
-    Map *newMapsData = new Map[sizeof(newMap) + sizeof(mapsData)];
-    for (int i = 0; i < numberOfMaps; i++)
+    Map* newMapsData = new Map[sizeof(newMap)+sizeof(mapsData)];
+    for(int i = 0; i< numberOfMaps; i++)
     {
         newMapsData[i] = mapsData[i];
     }
     newMapsData[numberOfMaps] = newMap;
     numberOfMaps++;
+    delete[] mapsData;
+    mapsData = newMapsData;
+    return this;
 }
 
-Map *Data::operator=(Map &newMap)
+Map* Data::operator=(Map &newMap)
 {
     for (int i = 0; i < numberOfMaps; i++)
     {
         if (strcpy(mapsData[i].GetName(), newMap.GetName()) == 0)
         {
             cout << "This map already exists\n";
-            return;
+            return this->mapsData;
         }
     }
     delete[] mapsData;
     mapsData = new Map[sizeof(newMap)];
     mapsData = &newMap;
+ 
     return mapsData;
 }
 
-Room roomArray[10]{
-    {"room1", itemLIst, monsterList},
-    {"room2", itemLIst, monsterList},
-    {"room3", itemLIst, monsterList},
-    {"room4", itemLIst, monsterList},
-    {"room5", itemLIst, monsterList},
-    {"room6", itemLIst, monsterList},
-    {"room7", itemLIst, monsterList},
-    {"room8", itemLIst, monsterList},
-    {"room9", itemLIst, monsterList},
-    {"room10", itemLIst, monsterList}};
+

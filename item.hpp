@@ -35,16 +35,5 @@ public:
 /* Stream operators */
 std::ostream &operator<<(std::ostream &os, const Item &item);
 
-Item itemLIst[10] = {
-    Item((char *)"books", 1),
-    Item((char *)"chairs", 2),
-    Item((char *)"tables", 3),
-    Item((char *)"windows", 4),
-    Item((char *)"curtains", 0),
-    Item((char *)"kitchen", 1),
-    Item((char *)"pets", 2),
-    Item((char *)"plants", 3),
-    Item((char *)"TV", 4),
-    Item((char *)"Lamps", 0)};
 
 #endif
