@@ -59,6 +59,15 @@ Monster &Monster::operator++(int)
     return *this;
 }
 
+Monster &Monster::operator=(const Monster &monster)
+{
+    if (name != nullptr)
+        delete[] name;
+    name = strdup(monster.name);
+    level = monster.level;
+    return *this;
+}
+
 /* Destructor */
 Monster::~Monster()
 {

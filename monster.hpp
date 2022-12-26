@@ -27,6 +27,7 @@ public:
     Monster &operator+=(const Monster &);
     Monster &operator++();
     Monster &operator++(int);
+    Monster &operator=(const Monster &);
 
     /* Destructor */
     ~Monster();

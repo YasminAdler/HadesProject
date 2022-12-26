@@ -40,11 +40,15 @@ public:
     /* Adders */
     void addItem(Item newItem);
     void addMonster(Monster newMonster);
-    Room *addRoom(Room&, Direction);
+    Room *addRoom(Room &, Direction);
 
     /* Functions */
     Room *findRoom(Room &);
 
+    /* Operator */
+    Room *operator=(Room &);
+    Item *operator=(Item *);
+    Monster *operator=(Monster *);
 
     /* Destructor */
     ~Room();
