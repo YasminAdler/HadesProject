@@ -38,42 +38,58 @@ Data::~Data()
 }
 
 /*Functions*/
-Map &Data::operator+=(Map &newMap)
+void Data::operator+=(Map &newMap)
 {
     for (int i = 0; i < numberOfMaps; i++)
     {
         if (strcpy(mapsData[i].GetName(), newMap.GetName()) == 0)
         {
             cout << "This map already exists\n";
-            return *(this->getMapsData());
+            return;
         }
     }
-    Room* available;
+    Room *available;
     available = newMap.GetCurrentRooms();
-    if(available != NULL)
+    if (available != NULL)
     {
         mapsData->AddRoom(*available, North);
     }
-
+    return;
 }
 
-Map &Data::operator+=(Map &newMap)
+void Data::operator+(Map &newMap)
 {
     for (int i = 0; i < numberOfMaps; i++)
     {
         if (strcpy(mapsData[i].GetName(), newMap.GetName()) == 0)
         {
             cout << "This map already exists\n";
-            return *(this->getMapsData());
+            return;
         }
     }
-    Room* available;
-    available = newMap.GetCurrentRooms();
-    if(available != NULL)
+    Map *newMapsData = new Map[sizeof(newMap) + sizeof(mapsData)];
+    for (int i = 0; i < numberOfMaps; i++)
     {
-        mapsData->AddRoom(*available, North);
+        newMapsData[i] = mapsData[i];
     }
-    
+    newMapsData[numberOfMaps] = newMap;
+    numberOfMaps++;
+}
+
+Map *Data::operator=(Map &newMap)
+{
+    for (int i = 0; i < numberOfMaps; i++)
+    {
+        if (strcpy(mapsData[i].GetName(), newMap.GetName()) == 0)
+        {
+            cout << "This map already exists\n";
+            return;
+        }
+    }
+    delete[] mapsData;
+    mapsData = new Map[sizeof(newMap)];
+    mapsData = &newMap;
+    return mapsData;
 }
 
 Room roomArray[10]{

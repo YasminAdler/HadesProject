@@ -28,7 +28,9 @@ public:
     ~Data();
 
     /* Functions */
-    Map& operator+=(Map& newMap);
+    void operator+=(Map& newMap);
+    void operator+(Map &newMap);
+    Map* operator=(Map &newMap);
 };
 
 #endif
