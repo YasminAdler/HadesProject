@@ -36,7 +36,7 @@ public:
     void dupMoonsterCheck(Monster newMonster);
     // Returns the room in the requested direction.
     Room *getDirection(Direction);
-
+    
     /* Adders */
     void addItem(Item newItem);
     void addMonster(Monster newMonster);
@@ -44,6 +44,7 @@ public:
 
     /* Functions */
     Room *findRoom(Room &);
+
 
     /* Destructor */
     ~Room();

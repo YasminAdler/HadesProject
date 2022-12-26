@@ -43,7 +43,12 @@ char *Map::GetName()
   return name;
 }
 
-Room* Map::Search()
+Room* Map::GetRooms()
 {
+  return rooms;
+}
 
+Room* Map::GetCurrentRooms()
+{
+  return currentRoom; 
 }

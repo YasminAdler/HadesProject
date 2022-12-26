@@ -27,7 +27,8 @@ public:
     
     /* Getters */
     char* GetName();
-    Room* Search();
+    Room*GetRooms();
+    Room* GetCurrentRooms();
 
 };
 #endif

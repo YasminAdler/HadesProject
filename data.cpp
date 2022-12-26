@@ -49,11 +49,31 @@ Map &Data::operator+=(Map &newMap)
         }
     }
     Room* available;
-    available = newMap.Search();
+    available = newMap.GetCurrentRooms();
     if(available != NULL)
     {
-        
+        mapsData->AddRoom(*available, North);
     }
+
+}
+
+Map &Data::operator+=(Map &newMap)
+{
+    for (int i = 0; i < numberOfMaps; i++)
+    {
+        if (strcpy(mapsData[i].GetName(), newMap.GetName()) == 0)
+        {
+            cout << "This map already exists\n";
+            return *(this->getMapsData());
+        }
+    }
+    Room* available;
+    available = newMap.GetCurrentRooms();
+    if(available != NULL)
+    {
+        mapsData->AddRoom(*available, North);
+    }
+    
 }
 
 Room roomArray[10]{
