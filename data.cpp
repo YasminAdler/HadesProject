@@ -50,8 +50,12 @@ Map& Data::operator+=(Map& newMap)
             return *(this->getMapsData());
         }
     }
-    
-    
+    Room* available;
+    available = newMap.Search();
+    if(available != NULL)
+    {
+        
+    }
 }
 
 Room roomArray[10]{

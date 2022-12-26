@@ -43,3 +43,8 @@ char *Map::GetName()
 {
   return name;
 }
+
+Room* Map::Search()
+{
+
+}

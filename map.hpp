@@ -26,6 +26,7 @@ public:
     
     /* Getters */
     char* GetName();
+    Room* Search();
 
 };
 #endif
