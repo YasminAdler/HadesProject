@@ -140,7 +140,8 @@ void Room::addMonster(Monster newMonster)
     monsters = newArr;
 }
 
-Room *Room::addRoom(Room& room, Direction direction)
+// Need to rethink this, something feels off.
+Room *Room::addRoom(Room &room, Direction direction)
 {
     if (getDirection(direction) != nullptr)
         return &room;
@@ -203,6 +204,38 @@ END:
     return temp;
 }
 
+/* Operator */
+Room *Room::operator=(Room &room)
+{
+    name = strdup(room.name);
+    items = room.items;
+    monsters = room.monsters;
+    NorthRoom = room.NorthRoom;
+    SouthRoom = room.SouthRoom;
+    EastRoom = room.EastRoom;
+    WestRoom = room.WestRoom;
+    numberOfitems = room.numberOfitems;
+    numberOfMonsters = room.numberOfMonsters;
+    return nullptr;
+}
+
+Item *Room::operator=(Item *items)
+{
+    this->items = new Item[numberOfitems];
+    for (unsigned i = 0; i < numberOfitems; ++i)
+        this->items[i] = items[i];
+    return this->items;
+}
+
+Monster *Room::operator=(Monster *monsters)
+{
+    this->monsters = new Monster[numberOfMonsters];
+    for (unsigned i = 0; i < numberOfMonsters; ++i)
+        this->monsters[i] = monsters[i];
+    return this->monsters;
+}
+
+/* Destructor */
 Room::~Room()
 {
     if (name)
