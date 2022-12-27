@@ -2,10 +2,9 @@
 // Yasmin Adler 208462184
 #ifndef _MAP_
 #define _MAP_
-
+#include <iostream>
 #include "room.hpp"
 #include "Direction.hpp"
-#include <iostream>
 
 class Map
 {

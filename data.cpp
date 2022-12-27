@@ -4,11 +4,10 @@
 #include <cstring>
 #include "data.hpp"
 
-
 using namespace std;
 
 /* Constructors */
-inline Data::Data()
+Data::Data()
     : mapsData(nullptr), roomsData(nullptr){};
 
 /* Getters */
@@ -39,7 +38,7 @@ Data::~Data()
 }
 
 /*Functions*/
-Data* Data::operator+=(Map &newMap)
+Data *Data::operator+=(Map &newMap)
 {
     for (int i = 0; i < numberOfMaps; i++)
     {
@@ -49,16 +48,16 @@ Data* Data::operator+=(Map &newMap)
             return this;
         }
     }
-    Room* available;
+    Room *available;
     available = newMap.GetCurrentRooms();
-    if(available != NULL)
+    if (available != NULL)
     {
         mapsData->AddRoom(*available, North);
     }
     return this;
 }
 
-Data* Data::operator+(Map &newMap)
+Data *Data::operator+(Map &newMap)
 {
     for (int i = 0; i < numberOfMaps; i++)
     {
@@ -68,8 +67,8 @@ Data* Data::operator+(Map &newMap)
             return this;
         }
     }
-    Map* newMapsData = new Map[sizeof(newMap)+sizeof(mapsData)];
-    for(int i = 0; i< numberOfMaps; i++)
+    Map *newMapsData = new Map[sizeof(newMap) + sizeof(mapsData)];
+    for (int i = 0; i < numberOfMaps; i++)
     {
         newMapsData[i] = mapsData[i];
     }
@@ -80,7 +79,7 @@ Data* Data::operator+(Map &newMap)
     return this;
 }
 
-Map* Data::operator=(Map &newMap)
+Map *Data::operator=(Map &newMap)
 {
     for (int i = 0; i < numberOfMaps; i++)
     {
@@ -93,8 +92,6 @@ Map* Data::operator=(Map &newMap)
     delete[] mapsData;
     mapsData = new Map[sizeof(newMap)];
     mapsData = &newMap;
- 
+
     return mapsData;
 }
-
-

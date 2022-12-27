@@ -4,7 +4,7 @@
 #include <cstring>
 
 /* Constructors */
-inline Monster::Monster()
+Monster::Monster()
     : name(nullptr),
       level(0){};
 
@@ -56,15 +56,6 @@ Monster &Monster::operator++()
 Monster &Monster::operator++(int)
 {
     this->level++;
-    return *this;
-}
-
-Monster &Monster::operator=(const Monster &monster)
-{
-    if (name != nullptr)
-        delete[] name;
-    name = strdup(monster.name);
-    level = monster.level;
     return *this;
 }
 

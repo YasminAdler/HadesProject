@@ -7,11 +7,6 @@
 
 using namespace std;
 
-/* Constructors */
-inline Item::Item()
-    : name(nullptr),
-      rarity(0) {}
-
 Item::Item(char *name, int rarity)
 {
     this->name = strdup(name);
@@ -108,23 +103,4 @@ Item::~Item()
 {
     if (name)
         delete[] name;
-}
-
-const char *getRarityName(int rarity)
-{
-    const char *rarityNames[] =
-        {"Common",
-         "Uncommon",
-         "Epic",
-         "Legendary"};
-    return rarityNames[rarity];
-}
-
-/* Stream operators */
-ostream &operator<<(ostream &os, Item &item)
-{
-    os << getRarityName(item.getRarity())
-       << " "
-       << item.getName();
-    return os;
 }

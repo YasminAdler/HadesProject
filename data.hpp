@@ -19,18 +19,18 @@ public:
 
     /* Getters */
     Room getRoom();
-    Map* getMapsData();
-    
+    Map *getMapsData();
+
     /* Adders */
     Room *addRoom(Room);
-    
+
     /* Destructor */
     ~Data();
 
     /* Functions */
-    Data* operator+=(Map& newMap);
-    Data* operator+(Map &newMap);
-    Map* operator=(Map &newMap);
+    Data *operator+=(Map &newMap);
+    Data *operator+(Map &newMap);
+    Map *operator=(Map &newMap);
 };
 
 #endif

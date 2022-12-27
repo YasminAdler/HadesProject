@@ -11,7 +11,8 @@ private:
 
 public:
     /* Constructors */
-    Item();
+    Item()
+        : name(nullptr), rarity(0) {}
     Item(char *name, int rarity);
 
     /* Getters */

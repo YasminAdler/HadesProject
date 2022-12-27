@@ -25,7 +25,7 @@ public:
     Room(const char *, Item *);
     Room(const char *, Item *, Monster *);
 
-    // Room(const char *, Item&);
+    // Room(const char *, Item &);
     // Room(const char *, Item &, Monster &);
 
     /* Getters */
