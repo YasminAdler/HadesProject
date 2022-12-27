@@ -2,6 +2,7 @@
 // Yasmin Adler 208462184
 #include "monster.hpp"
 #include <cstring>
+#include <iostream>
 
 /* Constructors */
 Monster::Monster()
@@ -15,7 +16,7 @@ Monster::Monster(const char *name, int level)
 }
 
 /* Getters */
-const char *Monster::getName()
+char *Monster::getName()
 {
     return name;
 }
@@ -56,6 +57,18 @@ Monster &Monster::operator++()
 Monster &Monster::operator++(int)
 {
     this->level++;
+    return *this;
+}
+
+Monster &Monster::operator=(Monster &monster)
+{
+    if(strcpy(name, monster.getName()) == 0)
+    {
+        return *this;
+    }
+    delete name;
+    name = strdup(monster.getName());
+    level = monster.getLevel();
     return *this;
 }
 

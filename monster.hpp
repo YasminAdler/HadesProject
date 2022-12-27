@@ -16,7 +16,7 @@ public:
     Monster(const char *, int);
 
     /* Getters */
-    const char *getName();
+    char *getName();
     const int getLevel();
 
     /* Setters */
@@ -27,7 +27,7 @@ public:
     Monster &operator+=(const Monster &);
     Monster &operator++();
     Monster &operator++(int);
-    // Monster &operator=(Monster &monster);
+    Monster &operator=(Monster &monster);
 
     /* Destructor */
     ~Monster();
