@@ -16,6 +16,7 @@ private:
 public:
     /* Constructors */
     Map();
+    Map(const char* name);
 
     /* Functions */
     Room *AddRoom(Room, Direction);

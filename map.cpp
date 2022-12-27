@@ -1,6 +1,7 @@
 // Alon A. Rabinowitz 208142323
 // Yasmin Adler 208462184
 #include "map.hpp"
+#include <cstring>
 
 /* Constructors */
 Map::Map()
@@ -9,7 +10,9 @@ Map::Map()
 {
   rooms = new Room{(char *)"Start", nullptr};
   currentRoom = &rooms[0];
-};
+}
+Map::Map(const char *name)
+    : name(strdup(name)){};
 
 /* Functions */
 Room *Map::AddRoom(Room room, Direction direction)
@@ -43,12 +46,12 @@ char *Map::GetName()
   return name;
 }
 
-Room* Map::GetRooms()
+Room *Map::GetRooms()
 {
   return rooms;
 }
 
-Room* Map::GetCurrentRooms()
+Room *Map::GetCurrentRooms()
 {
-  return currentRoom; 
+  return currentRoom;
 }

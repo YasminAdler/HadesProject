@@ -62,11 +62,12 @@ Monster &Monster::operator++(int)
 
 Monster &Monster::operator=(Monster &monster)
 {
-    if(strcpy(name, monster.getName()) == 0)
+    if (strcpy(name, monster.getName()) == 0)
     {
         return *this;
     }
-    delete name;
+    if (name != nullptr)
+        delete[] name;
     name = strdup(monster.getName());
     level = monster.getLevel();
     return *this;
@@ -75,7 +76,7 @@ Monster &Monster::operator=(Monster &monster)
 /* Destructor */
 Monster::~Monster()
 {
-    if (name)
+    if (name != nullptr)
         delete[] name;
 }
 

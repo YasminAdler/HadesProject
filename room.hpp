@@ -22,6 +22,7 @@ class Room
 public:
     /* Constructors */
     Room();
+    Room(const char* );
     Room(const char *, Item *);
     Room(const char *, Item *, Monster *);
 

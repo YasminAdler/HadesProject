@@ -6,6 +6,12 @@
 
 using namespace std;
 
+static unsigned numberOfRooms = 0;
+static unsigned numberOfMaps = 0;
+
+static unsigned numberOfRooms = 0;
+static unsigned numberOfMaps = 0;
+
 
 Monster monsterList[9]{
     Monster((char *)"Typhon", 0),
@@ -45,24 +51,38 @@ Room roomArray[10]{
 
 /* Constructors */
 Data::Data()
-    : mapsData(nullptr), roomsData(roomArray){};
+    : mapsData(nullptr),
+      roomsData(nullptr){};
 
 /* Getters */
-Map *Data::getMapsData()
+const Room &Data::getRoom(char *name)
 {
-    return mapsData;
+    for (unsigned i = 0; i <= numberOfRooms; ++i)
+        if (roomsData[i].getName() == name)
+            return roomsData[i];
+    return *(new Room(name));
+}
+
+const Map &Data::getMap(char *name)
+{
+    for (unsigned i = 0; i <= numberOfMaps; ++i)
+        if (mapsData[i].GetName() == name)
+            return mapsData[i];
+    return *(new Map(name));
 }
 
 /* Adders */
-Room *Data::addRoom(Room room)
+void Data::addRoom(Room &room)
 {
-    unsigned i = 0;
-    Room *temp;
-    while (roomsData + i != nullptr)
+    Room *temp = new Room[numberOfRooms + 1];
+    for (unsigned i = 0; i <= numberOfRooms; ++i)
     {
-        ++i;
+        temp[i] = roomsData[i];
     }
-    return nullptr;
+    numberOfRooms++;
+    temp[numberOfRooms] = room;
+    delete[] roomsData;
+    roomsData = temp;
 }
 
 /* Destructor */
