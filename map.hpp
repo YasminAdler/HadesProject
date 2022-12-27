@@ -13,22 +13,22 @@ private:
     Room *rooms;
     int numberOfRooms;
     Room *currentRoom;
+
 public:
     /* Constructors */
     Map();
-    Map(const char* name);
+    Map(const char *name);
 
     /* Functions */
     Room *AddRoom(Room, Direction);
-    Room *findRoom(Room&);
+    Room *findRoom(Room &);
+
+    /* Getters */
+    char *GetName();
+    Room *GetRooms();
+    Room *GetCurrentRooms();
 
     /* Destructor */
     ~Map();
-    
-    /* Getters */
-    char* GetName();
-    Room*GetRooms();
-    Room* GetCurrentRooms();
-
 };
 #endif

@@ -36,5 +36,4 @@ public:
 /* Stream operators */
 std::ostream &operator<<(std::ostream &os, const Item &item);
 
-
 #endif

@@ -9,10 +9,6 @@ using namespace std;
 static unsigned numberOfRooms = 0;
 static unsigned numberOfMaps = 0;
 
-static unsigned numberOfRooms = 0;
-static unsigned numberOfMaps = 0;
-
-
 Monster monsterList[9]{
     Monster((char *)"Typhon", 0),
     Monster((char *)"Echidna", 0),
@@ -23,7 +19,6 @@ Monster monsterList[9]{
     Monster((char *)"Sphinx", 0),
     Monster((char *)"Lamia", 0),
     Monster((char *)"Giants", 0)};
-
 
 Item itemLIst[10] = {
     Item((char *)"books", 1),
@@ -124,13 +119,13 @@ Data *Data::operator+(Map &newMap)
             return this;
         }
     }
-    Map *newMapsData = new Map[sizeof(newMap) + sizeof(mapsData)];
+    Map *newMapsData = new Map[numberOfMaps + 1];
     for (int i = 0; i < numberOfMaps; i++)
     {
         newMapsData[i] = mapsData[i];
     }
-    newMapsData[numberOfMaps] = newMap;
     numberOfMaps++;
+    newMapsData[numberOfMaps] = newMap;
     delete[] mapsData;
     mapsData = newMapsData;
     return this;
@@ -152,5 +147,3 @@ Map *Data::operator=(Map &newMap)
 
     return mapsData;
 }
-
-

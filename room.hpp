@@ -22,7 +22,7 @@ class Room
 public:
     /* Constructors */
     Room();
-    Room(const char* );
+    Room(const char *);
     Room(const char *, Item *);
     Room(const char *, Item *, Monster *);
 
@@ -40,7 +40,7 @@ public:
     void dupMoonsterCheck(Monster newMonster);
     // Returns the room in the requested direction.
     Room *getDirection(Direction);
-    
+
     /* Adders */
     void addItem(Item newItem);
     void addMonster(Monster newMonster);

@@ -227,6 +227,38 @@ END:
     return temp;
 }
 
+/* Operator */
+Room *Room::operator=(Room &room)
+{
+    name = strdup(room.name);
+    items = room.items;
+    monsters = room.monsters;
+    NorthRoom = room.NorthRoom;
+    SouthRoom = room.SouthRoom;
+    EastRoom = room.EastRoom;
+    WestRoom = room.WestRoom;
+    numberOfitems = room.numberOfitems;
+    numberOfMonsters = room.numberOfMonsters;
+    return nullptr;
+}
+
+Item *Room::operator=(Item *items)
+{
+    this->items = new Item[numberOfitems];
+    for (unsigned i = 0; i < numberOfitems; ++i)
+        this->items[i] = items[i];
+    return this->items;
+}
+
+Monster *Room::operator=(Monster *monsters)
+{
+    this->monsters = new Monster[numberOfMonsters];
+    for (unsigned i = 0; i < numberOfMonsters; ++i)
+        this->monsters[i] = monsters[i];
+    return this->monsters;
+}
+
+/* Destructor */
 Room::~Room()
 {
     if (name)
@@ -248,13 +280,15 @@ Room::~Room()
 // Stream operators:
 ostream &operator<<(ostream &os, Room &currRoom)
 {
+    os << "Items:\n";
     for (int i = 0; i < currRoom.getNumOfItems(); i++)
     {
-        os << "Items:\n Name: " << (currRoom.getItems())[i].getName() << " Rarity: " << (currRoom.getItems())[i].getRarity() << endl;
+        os << "Name: " << (currRoom.getItems())[i].getName() << " Rarity: " << (currRoom.getItems())[i].getRarity() << endl;
     }
+    os << "Items:\n";
     for (int i = 0; i < currRoom.getNumOfMonsters(); i++)
     {
-        os << "Items:\n Name: " << (currRoom.getMonsters())[i].getName() << " Level: " << (currRoom.getMonsters())[i].getLevel() << endl;
+        os << "Name: " << (currRoom.getMonsters())[i].getName() << " Level: " << (currRoom.getMonsters())[i].getLevel() << endl;
     }
     return os;
 }

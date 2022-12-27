@@ -16,7 +16,7 @@ Monster::Monster(const char *name, int level)
 }
 
 /* Getters */
-char *Monster::getName()
+const char *Monster::getName()
 {
     return name;
 }
@@ -76,7 +76,7 @@ Monster &Monster::operator=(Monster &monster)
 /* Destructor */
 Monster::~Monster()
 {
-    if (name != nullptr)
+    if (name)
         delete[] name;
 }
 

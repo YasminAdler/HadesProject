@@ -16,7 +16,7 @@ public:
     Monster(const char *, int);
 
     /* Getters */
-    char *getName();
+    const char *getName();
     const int getLevel();
 
     /* Setters */
@@ -34,9 +34,6 @@ public:
 };
 
 /* Stream operators */
-
-std::ostream &operator<<(std::ostream &os, const Monster &);
-
-
+std::ostream &operator<<(std::ostream &os, Monster &);
 
 #endif

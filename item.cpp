@@ -104,3 +104,11 @@ Item::~Item()
     if (name)
         delete[] name;
 }
+
+std::ostream &operator<<(std::ostream &os, Item &item)
+{
+    os << item.getName()
+       << " "
+       << item.getRarity();
+    return os;
+}

@@ -11,6 +11,7 @@ Map::Map()
   rooms = new Room{(char *)"Start", nullptr};
   currentRoom = &rooms[0];
 }
+
 Map::Map(const char *name)
     : name(strdup(name)){};
 
@@ -18,27 +19,18 @@ Map::Map(const char *name)
 Room *Map::AddRoom(Room room, Direction direction)
 {
   Room newRoom;
-  // if there is sompthing there already
+  // if there is something there already
   if (currentRoom->getDirection(direction) != nullptr)
     return currentRoom;
   currentRoom = currentRoom->addRoom(newRoom, direction);
   ++numberOfRooms;
   return currentRoom;
 }
+
 Room *Map::findRoom(Room &room)
 {
   return room.findRoom(room);
-};
-
-/* Destructor */
-Map::~Map()
-{
-  if (name)
-    delete[] name;
-  if (rooms)
-    delete rooms;
-  currentRoom = nullptr;
-};
+}
 
 /* Getters */
 char *Map::GetName()
@@ -55,3 +47,13 @@ Room *Map::GetCurrentRooms()
 {
   return currentRoom;
 }
+
+/* Destructor */
+Map::~Map()
+{
+  if (name)
+    delete[] name;
+  if (rooms)
+    delete rooms;
+  currentRoom = nullptr;
+};
